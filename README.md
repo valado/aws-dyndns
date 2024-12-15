@@ -7,3 +7,4 @@ Following environment variables are necessary
 `ZONE_ID`
 `DOMAIN`
 `IP_TOKEN`
+`CHECK_INTERVAL`
