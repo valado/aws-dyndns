@@ -23,4 +23,4 @@ def get_domain_ip():
     return result.stdout
 
 def is_domain_ip_still_valid(ip):
-    return ip in get_domain_ip()
+    return ip.encode() in get_domain_ip()

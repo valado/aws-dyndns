@@ -6,17 +6,18 @@ import time
 
 def update_dns_record_if_needed():
     public_ip = get_public_ip()
+    info(f'Public IP: {public_ip}')
     valid_ip = is_valid_ip(public_ip)
     if not valid_ip:
         error('Failed to obtain a valid public IP.')
         return
     
-    domain_ip_needs_update = not is_domain_ip_still_valid(public_ip)
-    if domain_ip_needs_update:
+    domain_ip_still_valid = is_domain_ip_still_valid(public_ip)
+    if domain_ip_still_valid:
+        info('Public IP has not changed. No update needed.')
+    else:
         info(f'Updating domain IP to {public_ip}')
         update_dns_records(public_ip)
-    else:
-        info('Public IP has not changed. No update needed.')
 
 def main_loop():
     while True:
