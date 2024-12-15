@@ -3,6 +3,7 @@ from pathlib import Path
 
 DOMAIN = os.environ.get('DOMAIN')
 IP_URL = 'https://ipinfo.io/ip'
+IP_TOKEN = os.environ.get('IP_TOKEN')
 TIMEOUT = 5
 CHECK_INTERVAL = 180
 LOG_FILE_PATH = Path.home() / './ddns.log'

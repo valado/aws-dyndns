@@ -6,3 +6,4 @@ Following environment variables are necessary
 `SECRET_KEY`
 `ZONE_ID`
 `DOMAIN`
+`IP_TOKEN`
