@@ -11,4 +11,4 @@ RUN apt -y install dnsutils
 
 COPY . .
 
-CMD [ "python", "./ddns.py" ]
+CMD [ "python3", "./ddns.py" ]
