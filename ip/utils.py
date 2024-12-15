@@ -5,7 +5,7 @@ import subprocess
 from common.consts import DOMAIN, IP_TOKEN, IP_URL, TIMEOUT
 
 def get_public_ip():
-    response = requests.get(IP_URL, timeout=TIMEOUT, headers={'Authorization': f'TOK:{IP_TOKEN}'})
+    response = requests.get(IP_URL, timeout=TIMEOUT, headers={'Authorization': f'Bearer {IP_TOKEN}'})
     ip = response.text.strip()
     if is_valid_ip(ip):
         return ip
