@@ -9,8 +9,8 @@ CHECK_INTERVAL = int(os.environ.get('CHECK_INTERVAL'))
 LOG_FILE_PATH = Path.home() / './ddns.log'
 AWS_CONFIG = {
     'aws_credentials': {
-        'access_key': os.environ.get('ACCESS_KEY'),
-        'secret_key': os.environ.get('SECRET_KEY')
+        'aws_access_key_id': os.environ.get('AWS_ACCESS_KEY_ID'),
+        'aws_secret_access_key': os.environ.get('AWS_SECRET_ACCESS_KEY')
     },
     'zone_id': os.environ.get('ZONE_ID'),
     'records': [

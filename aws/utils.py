@@ -6,8 +6,8 @@ from common.consts import AWS_CONFIG
 def update_dns_records(public_ip):
     route53 = boto3.client(
         'route53',
-        aws_access_key_id=AWS_CONFIG['aws_credentials']['access_key'],
-        aws_secret_access_key=AWS_CONFIG['aws_credentials']['secret_key']
+        aws_access_key_id=AWS_CONFIG['aws_credentials']['aws_access_key_id'],
+        aws_secret_access_key=AWS_CONFIG['aws_credentials']['aws_secret_access_key']
     )
     for record in AWS_CONFIG['records']:
         try:

@@ -1,6 +1,6 @@
-# DDNS
+# AWS-DynDNS
 
-DynamicDNS for self-hosting using AWS.
+AWS-DynDNS for self-hosting using AWS.
 
 ## AWS policy needed
 
@@ -13,12 +13,12 @@ ListResourceRecordSets
 
 ## Following environment variables are necessary
 
-`ACCESS_KEY`
-`SECRET_KEY`
-`ZONE_ID`
-`DOMAIN`
-`IP_TOKEN`
-`CHECK_INTERVAL`
+- `AWS_ACCESS_KEY_ID` - AWS access key id
+- `AWS_SECRET_ACCESS_KEY` - AWS access secret key
+- `ZONE_ID` - Which hosted zone should be updated
+- `DOMAIN` - Which domain should be updated with an `A` record-set
+- `IP_TOKEN` - Token for [ipinfo](https://ipinfo.io) fetching the current IPv4
+- `CHECK_INTERVAL` - How often to check the IP and update if changed (in seconds)
 
 ## Example docker compose file
 
@@ -31,8 +31,8 @@ services:
     image: thevlad/ddns:latest
     restart: unless-stopped
     environment:
-      - ACCESS_KEY=<ACCESS_KEY>
-      - SECRET_KEY=<SECRET_KEY>
+      - AWS_ACCESS_KEY_ID=<AWS_ACCESS_KEY_ID>
+      - AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY>
       - ZONE_ID=<ZONE_ID>
       - DOMAIN=ddns.example.com
       - IP_TOKEN=<TOKEN for https://ipinfo.io>
