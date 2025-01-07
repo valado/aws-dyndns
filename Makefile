@@ -19,8 +19,8 @@ run:
 	python3 ddns.py
 
 # Build
-build:
-	docker buildx build . --platform linux/arm64/v8,linux/amd64 -t thevlad/ddns:latest --push
+buildandpush:
+	docker buildx build . --platform linux/arm64/v8,linux/amd64 -t thevlad/aws-dyndns:latest --push
 
 # Save dependencies
 save:

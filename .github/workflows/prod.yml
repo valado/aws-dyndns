@@ -1,0 +1,24 @@
+name: CI-PROD
+
+env:
+  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build Image
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Build, tag, and push image to Amazon ECR
+        run: |
+          docker login -u="${{ env.DOCKER_USERNAME }}" -p="${{ env.DOCKER_PASSWORD }}"
+          make buildandpush

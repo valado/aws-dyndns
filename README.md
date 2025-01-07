@@ -28,7 +28,7 @@ version: "3"
 services:
   ddns:
     container_name: ddns
-    image: thevlad/ddns:latest
+    image: thevlad/aws-dyndns:latest
     restart: unless-stopped
     environment:
       - AWS_ACCESS_KEY_ID=<AWS_ACCESS_KEY_ID>
