@@ -13,12 +13,11 @@ jobs:
     name: Build Image
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Check out code
         uses: actions/checkout@v4
 
-      - name: Build, tag, and push image to Amazon ECR
+      - name: Build, tag, and push image
         run: |
           docker login -u="${{ env.DOCKER_USERNAME }}" -p="${{ env.DOCKER_PASSWORD }}"
           make buildandpush
